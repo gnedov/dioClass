@@ -20,11 +20,10 @@ public class ArrayOperation implements IArrayUnion {
             // add items from right array to the result under certain conditions
             int tailIndex = leftArray.length;
             for (int i : rightArray) {
-                for (int j : resArr) {
+                for (int j : leftArray) {
                     if (j == i) {
                         resArr[tailIndex] = i;
                         tailIndex++;
-                        break;
                     }
                 }
             }
