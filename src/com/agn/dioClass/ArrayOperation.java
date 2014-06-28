@@ -50,7 +50,7 @@ public class ArrayOperation implements IArrayUnion {
                     tailIndex++;
                 }
             }
-            return rightTrimArr(resArr);
+            return  Arrays.copyOf(resArr, tailIndex);
         }
         else
             return null;
