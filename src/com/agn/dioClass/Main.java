@@ -23,13 +23,7 @@ public class Main {
         // Trim Array - remove all "zero" values in reverse direction (from end to start)
         resArr = arrOper.rightTrimArr(resArr);
         // Print out result
-        if (resArr != null) {
-            int k = 0;
-            for (int i : resArr) {
-                System.out.println("Index [" + k + "]: " + i);
-                ++k;
-            }
-        }
+        arrOper.printOutInCol(resArr);
     }
 
     private static void classWork2() {
@@ -43,13 +37,7 @@ public class Main {
         int[] rightArr = arrOper.initRightArray(EnumOperationType.DISTINCT_UNION);  // defined  [3,5,24,54,1,2,34,45,32]
         int[] resArr = arrOper.distinctUnion(leftArr, rightArr);  //expected result [1,5,4,23,65,32,78,3,24,54,2,34,45]
 
-        if (resArr != null) {
-            int k = 0;
-            for (int i : resArr) {
-                System.out.println("Index [" + k + "]: " + i);
-                ++k;
-            }
-        }
+        arrOper.printOutInCol(resArr);
 
     }
     // TODO

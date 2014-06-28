@@ -123,4 +123,14 @@ public class ArrayOperation implements IArrayUnion {
         } else
             return null;
     }
+
+    public void printOutInCol(int[] arrPrint){
+        if (arrPrint != null) {
+            int k = 0;
+            for (int i : arrPrint) {
+                System.out.println("Index [" + k + "]: " + i);
+                ++k;
+            }
+        }
+    }
 }
