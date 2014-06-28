@@ -3,7 +3,7 @@ package com.agn.dioClass;
 public class Main {
     public static void main(String[] arg0) {
 
-     //   classWork1();   // perform LeftUnion
+        classWork1();   // perform LeftUnion
         classWork2();   // perform DistinctUnion, InnerUnion, OuterUnion
 
     }
@@ -16,8 +16,10 @@ public class Main {
         Print the result array.
         */
         ArrayOperation arrOper = new ArrayOperation();
-        int[] leftArr = arrOper.initLeftArray();      // defined {1,5,4,23,65,32,78}
-        int[] rightArr = arrOper.initRightArray();    // defined {3,5,24,4,1,2,34,45,32,5}
+        ArrayGenerator arrGen = new ArrayGenerator();
+
+        int[] leftArr = arrGen.initLeftArray();      // defined {1,5,4,23,65,32,78}
+        int[] rightArr = arrGen.initRightArray();    // defined {3,5,24,4,1,2,34,45,32,5}
         int[] resArr = arrOper.leftUnion(leftArr, rightArr); // expected result {1,5,4,23,65,32,78,5,4,1,32,5}
 
         // Trim Array - remove all "zero" values in reverse direction (from end to start)
@@ -33,8 +35,10 @@ public class Main {
         Print the result array.
         */
         ArrayOperation arrOper = new ArrayOperation();
-        int[] leftArr = arrOper.initLeftArray(EnumOperationType.DISTINCT_UNION);    // defined [1,5,4,23,65,32,78]
-        int[] rightArr = arrOper.initRightArray(EnumOperationType.DISTINCT_UNION);  // defined  [3,5,24,54,1,2,34,45,32]
+        ArrayGenerator arrGen = new ArrayGenerator();
+
+        int[] leftArr = arrGen.initLeftArray(EnumOperationType.DISTINCT_UNION);    // defined [1,5,4,23,65,32,78]
+        int[] rightArr = arrGen.initRightArray(EnumOperationType.DISTINCT_UNION);  // defined  [3,5,24,54,1,2,34,45,32]
         int[] resArr = arrOper.distinctUnion(leftArr, rightArr);  //expected result [1,5,4,23,65,32,78,3,24,54,2,34,45]
 
         arrOper.printOutInCol(resArr);
