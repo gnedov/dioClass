@@ -3,7 +3,7 @@ package com.agn.dioClass;
 public class Main {
     public static void main(String[] arg0) {
 
-        classWork1();   // perform LeftUnion
+      // classWork1();   // perform LeftUnion
         classWork2();   // perform DistinctUnion, InnerUnion, OuterUnion
 
     }
@@ -41,7 +41,8 @@ public class Main {
         int[] rightArr = arrGen.initRightArray(EnumOperationType.DISTINCT_UNION);  // defined  [3,5,24,54,1,2,34,45,32]
         int[] resArr = arrOper.distinctUnion(leftArr, rightArr);  //expected result [1,5,4,23,65,32,78,3,24,54,2,34,45]
 
-        arrOper.printOutInCol(resArr);
+        System.out.print("Tre result is: ");
+        arrOper.printOutInRow(resArr);
 
     }
     // TODO

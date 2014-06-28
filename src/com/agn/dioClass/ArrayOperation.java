@@ -87,4 +87,10 @@ public class ArrayOperation implements IArrayUnion {
             }
         }
     }
+    
+    public void printOutInRow(int[] arrPrint){
+        if (arrPrint != null) {
+            System.out.print(Arrays.toString(arrPrint));
+        }
+    }
 }
