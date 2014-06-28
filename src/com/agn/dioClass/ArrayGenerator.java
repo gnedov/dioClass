@@ -18,7 +18,7 @@ public class ArrayGenerator implements IArrayGenerator {
             case RIGHT_UNION:
                 resArr = new int[]{}; break;
             case INNER_UNION:
-                resArr = new int[]{}; break;
+                resArr = new int[]{1, 5, 4, 23, 65, 32, 78}; break;
             case OUTER_UNION:
                 resArr = new int[]{}; break;
             case DISTINCT_UNION:
@@ -42,7 +42,7 @@ public class ArrayGenerator implements IArrayGenerator {
             case RIGHT_UNION:
                 resArr = new int[]{}; break;
             case INNER_UNION:
-                resArr = new int[]{}; break;
+                resArr = new int[]{3, 5, 24, 4, 1, 2, 34, 45, 32, 5}; break;
             case OUTER_UNION:
                 resArr = new int[]{}; break;
             case DISTINCT_UNION:

@@ -25,6 +25,7 @@ public class Main {
         // Trim Array - remove all "zero" values in reverse direction (from end to start)
         resArr = arrOper.rightTrimArr(resArr);
         // Print out result
+        System.out.print("The result of Left union is: ");
         arrOper.printOutInCol(resArr);
     }
 
@@ -37,24 +38,24 @@ public class Main {
         ArrayOperation arrOper = new ArrayOperation();
         ArrayGenerator arrGen = new ArrayGenerator();
 
+        //---------------- Distinct union
         int[] leftArr = arrGen.initLeftArray(EnumOperationType.DISTINCT_UNION);    // defined [1,5,4,23,65,32,78]
         int[] rightArr = arrGen.initRightArray(EnumOperationType.DISTINCT_UNION);  // defined  [3,5,24,54,1,2,34,45,32]
         int[] resArr = arrOper.distinctUnion(leftArr, rightArr);  //expected result [1,5,4,23,65,32,78,3,24,54,2,34,45]
 
-        System.out.print("Tre result is: ");
+        System.out.print("The result of Distinct union is: ");
         arrOper.printOutInRow(resArr);
 
+        //---------------- Inner union
+        leftArr = arrGen.initLeftArray(EnumOperationType.INNER_UNION);    // defined [1,5,4,23,65,32,78]
+        rightArr = arrGen.initRightArray(EnumOperationType.INNER_UNION);  // defined  [3,5,24,4,1,2,34,45,32,5]
+        resArr = arrOper.innerUnion(leftArr, rightArr);   //expected result  [5,4,32,1] OR [5, 4, 1, 32, 5] OR [1, 5, 4, 32]
+
+        System.out.print("The result of Inner union is: ");
+        arrOper.printOutInRow(resArr);
     }
     // TODO
     /*
-
-Для inner union (обеднение общих элементов)
-
-[1,5,4,23,65,32,78]
-[3,5,24,4,1,2,34,45,32,5]
-res:
-[5,4,32,1]
-
 
 Для outer union (Вывод разных отличающихся элементов):
 [1,5,4,23,65,32,78]

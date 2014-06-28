@@ -9,8 +9,9 @@ public class ArrayOperation implements IArrayUnion {
 
     public int[] leftUnion(int[] leftArray, int[] rightArray) {
         int[] resArr;
-        // copy whole left array to the result array
+
         if (leftArray != null && rightArray != null) {
+            // copy whole left array to the result array
             resArr = new int[leftArray.length + rightArray.length];
             int index = 0;
             for (int j : leftArray) {
@@ -35,8 +36,9 @@ public class ArrayOperation implements IArrayUnion {
 
     public int[] distinctUnion(int[] leftArray, int[] rightArray){
         int[] resArr;
-        // copy whole left array to the result array
+
         if (leftArray != null && rightArray != null) {
+            // copy whole left array to the result array
             resArr = new int[leftArray.length + rightArray.length];
             System.arraycopy(leftArray, 0, resArr, 0, leftArray.length);
 
@@ -56,9 +58,21 @@ public class ArrayOperation implements IArrayUnion {
             return null;
     }
     public int[] innerUnion(int[] leftArray, int[] rightArray){
-        int[] resArr = null;
+        int[] resArr;
+        if (leftArray != null && rightArray != null) {
+            resArr = new int[Math.min(leftArray.length, rightArray.length)];
+            int j = 0;
+            Arrays.sort(rightArray);
+            for (int i : leftArray) {
+                if (Arrays.binarySearch(rightArray, i) >= 0) {
+                    resArr[j] = i;
+                    j++;
+                }
+            }
+            return Arrays.copyOf(resArr, j);
+        } else
+            return null;
 
-        return resArr;
     }
     public int[] outerUnion(int[] leftArray, int[] rightArray){
         int[] resArr = null;
