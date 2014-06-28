@@ -45,8 +45,8 @@ public class ArrayOperation implements IArrayUnion {
             int tailIndex = leftArray.length;
             Arrays.sort(leftArray);
             for (int i : rightArray){
-                if (Arrays.binarySearch(leftArray, i) >= 0)
-                    continue;
+                if (Arrays.binarySearch(leftArray, i) >= 0) {
+                }
                 else{
                     resArr[tailIndex] = i;
                     tailIndex++;
@@ -57,6 +57,7 @@ public class ArrayOperation implements IArrayUnion {
         else
             return null;
     }
+
     public int[] innerUnion(int[] leftArray, int[] rightArray){
         int[] resArr;
         if (leftArray != null && rightArray != null) {
@@ -72,17 +73,45 @@ public class ArrayOperation implements IArrayUnion {
             return Arrays.copyOf(resArr, j);
         } else
             return null;
-
     }
+
     public int[] outerUnion(int[] leftArray, int[] rightArray){
-        int[] resArr = null;
+        int[] resArr;
 
-        return resArr;
+        if (leftArray != null && rightArray != null) {
+            int[] arrDiff1 = findDiffItems(leftArray, rightArray);
+            int[] arrDiff2 = findDiffItems(rightArray, leftArray);
+            resArr = new int[arrDiff1.length + arrDiff2.length];
+            System.arraycopy(arrDiff1, 0, resArr, 0, arrDiff1.length);
+            System.arraycopy(arrDiff2, 0, resArr, arrDiff1.length, arrDiff2.length);
+
+            return resArr;
+        }
+        else
+            return null;
     }
 
+    private int[] findDiffItems(int[] arrMaster, int[] arrSlave) {
+        int[] resDiff;
+        resDiff = new int[arrMaster.length];
+        arrMaster = Arrays.copyOf(arrMaster, arrMaster.length);
+        arrSlave = Arrays.copyOf(arrSlave, arrSlave.length);
+        int j = 0;
+        Arrays.sort(arrSlave);
+        for (int i : arrMaster) {
+            if (Arrays.binarySearch(arrSlave, i) >= 0) {
+            }
+            else {
+                resDiff[j] = i;
+                j++;
+            }
+        }
+        return Arrays.copyOf(resDiff, j);
+    }
+    
     public int[] rightTrimArr(int[] inpArr) {
         if (inpArr != null) {
-            int i = 0;
+            int i;
             for (i = inpArr.length - 1; i >= 0; i--) {
                 if (inpArr[i] != 0)
                     break;

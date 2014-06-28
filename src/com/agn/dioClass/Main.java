@@ -3,7 +3,7 @@ package com.agn.dioClass;
 public class Main {
     public static void main(String[] arg0) {
 
-      // classWork1();   // perform LeftUnion
+        classWork1();   // perform LeftUnion
         classWork2();   // perform DistinctUnion, InnerUnion, OuterUnion
 
     }
@@ -25,7 +25,7 @@ public class Main {
         // Trim Array - remove all "zero" values in reverse direction (from end to start)
         resArr = arrOper.rightTrimArr(resArr);
         // Print out result
-        System.out.print("The result of Left union is: ");
+        System.out.print("The result of Left union is: "); System.out.print('\n');
         arrOper.printOutInCol(resArr);
     }
 
@@ -44,23 +44,22 @@ public class Main {
         int[] resArr = arrOper.distinctUnion(leftArr, rightArr);  //expected result [1,5,4,23,65,32,78,3,24,54,2,34,45]
 
         System.out.print("The result of Distinct union is: ");
-        arrOper.printOutInRow(resArr);
+        arrOper.printOutInRow(resArr); System.out.print('\n');
 
         //---------------- Inner union
         leftArr = arrGen.initLeftArray(EnumOperationType.INNER_UNION);    // defined [1,5,4,23,65,32,78]
         rightArr = arrGen.initRightArray(EnumOperationType.INNER_UNION);  // defined  [3,5,24,4,1,2,34,45,32,5]
-        resArr = arrOper.innerUnion(leftArr, rightArr);   //expected result  [5,4,32,1] OR [5, 4, 1, 32, 5] OR [1, 5, 4, 32]
+        resArr = arrOper.innerUnion(leftArr, rightArr);   //expected result  [5,4,32,1] OR [5, 4, 1, 32, 5] OR [1, 5, 4, 32] ??
 
         System.out.print("The result of Inner union is: ");
-        arrOper.printOutInRow(resArr);
-    }
-    // TODO
-    /*
+        arrOper.printOutInRow(resArr); System.out.print('\n');
 
-Для outer union (Вывод разных отличающихся элементов):
-[1,5,4,23,65,32,78]
-[3,5,24,4,1,2,34,45,32,5]
-res:
-[23,65,78,3,24,2,34,45]
-    */
+        //---------------- Outer union
+        leftArr = arrGen.initLeftArray(EnumOperationType.OUTER_UNION);    // defined [1,5,4,23,65,32,78]
+        rightArr = arrGen.initRightArray(EnumOperationType.OUTER_UNION);  // defined  [3,5,24,4,1,2,34,45,32,5]
+        resArr = arrOper.outerUnion(leftArr, rightArr);   //expected result  [23,65,78,3,24,2,34,45]
+
+        System.out.print("The result of Outer union is: ");
+        arrOper.printOutInRow(resArr); System.out.print('\n');
+    }
 }
