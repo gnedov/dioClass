@@ -1,6 +1,8 @@
 package com.agn.dioClass;
 
 import java.util.Arrays;
+import java.util.Formatter;
+import java.util.Locale;
 
 public class ArrayOperation implements IArrayUnion {
 
@@ -122,10 +124,14 @@ public class ArrayOperation implements IArrayUnion {
     }
 
     public void printOutInCol(int[] arrPrint){
+		StringBuilder sb = new StringBuilder();
+        Formatter formatter = new Formatter(sb, Locale.US);
         if (arrPrint != null) {
             int k = 0;
             for (int i : arrPrint) {
-                System.out.println("Index [" + k + "]: " + i);
+                formatter.format("Index [%2d]: %2d", k, i);
+                System.out.println(sb.toString());
+                sb.setLength(0);
                 ++k;
             }
         }
