@@ -1,5 +1,7 @@
 package com.agn.dioClass;
 
+import static com.agn.dioClass.EnumOperationType.*;
+
 public class ArrayGenerator implements IArrayGenerator {
 
 
@@ -8,8 +10,7 @@ public class ArrayGenerator implements IArrayGenerator {
 
     @Override
     public int[] initLeftArray() {
-        //local code review (vtegza): use static imports for enum values @ 30.06.14
-        return initLeftArray(EnumOperationType.LEFT_UNION);
+        return initLeftArray(LEFT_UNION);
     }
 
     @Override
@@ -33,7 +34,7 @@ public class ArrayGenerator implements IArrayGenerator {
 
     @Override
     public int[] initRightArray() {
-        return initRightArray(EnumOperationType.LEFT_UNION);
+        return initRightArray(LEFT_UNION);
     }
 
     @Override
