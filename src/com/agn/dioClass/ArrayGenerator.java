@@ -8,8 +8,10 @@ public class ArrayGenerator implements IArrayGenerator {
 
     @Override
     public int[] initLeftArray() {
+        //local code review (vtegza): use static imports for enum values @ 30.06.14
         return initLeftArray(EnumOperationType.LEFT_UNION);
     }
+
     @Override
     public int[] initLeftArray(EnumOperationType eopTypeName){
         int[] resArr;

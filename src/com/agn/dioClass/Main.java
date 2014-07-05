@@ -1,5 +1,6 @@
 package com.agn.dioClass;
 
+//local code review (vtegza): try to keep code clean from redunt comments @ 30.06.14
 public class Main {
     public static void main(String[] arg0) {
 
