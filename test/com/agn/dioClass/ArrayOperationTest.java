@@ -27,7 +27,7 @@ public class ArrayOperationTest {
      //
     @Test  //- пустой первый массив
     public void testLeftUnion_LeftArrayIsEmpty() throws Exception {
-        int[] leftArray = new int[0]; // {1, 5, 4, 23, 65, 32, 78};
+        int[] leftArray = new int[0];
         int[] rightArray = new int[]{3, 5, 24, 4, 1, 2, 34, 45, 32, 5};
         int[] expected = new int[rightArray.length];
         //invoke
@@ -39,10 +39,8 @@ public class ArrayOperationTest {
     @Test    // - пустой второй массив
     public void testLeftUnion_RightArrayIsEmpty() throws Exception{
         int[] leftArray = new int[] {1, 5, 4, 23, 65, 32, 78};
-        int[] rightArray = new int[0]; //{3, 5, 24, 4, 1, 2, 34, 45, 32, 5};
-        //invoke
+        int[] rightArray = new int[0];
         int[] returnedValue = testClass.leftUnion(leftArray, rightArray);
-        //assert return
         assertArrayEquals(leftArray, returnedValue); // return the same array as leftArray
     }
 
@@ -50,9 +48,7 @@ public class ArrayOperationTest {
     public void testLeftUnion_LeftArrayIsNull() throws Exception {
         int[] leftArray = null;
         int[] rightArray = new int[]{3, 5, 24, 4, 1, 2, 34, 45, 32, 5};
-
         int[] returnedValue = testClass.leftUnion(leftArray, rightArray);
-
         assertNull(returnedValue);
     }
 
@@ -60,30 +56,28 @@ public class ArrayOperationTest {
     public void testLeftUnion_RightArrayIsNull() throws Exception {
         int[] leftArray = new int[]{1, 5, 4, 23, 65, 32, 78};
         int[] rightArray = null;
-
         int[] returnedValue = testClass.leftUnion(leftArray, rightArray);
-
         assertNull(returnedValue);
     }
 
-    @Test  // - большой первый массив (size IInteger.MAX_VALUE)
+    @Test (expected = OutOfMemoryError.class) // - большой первый массив (size IInteger.MAX_VALUE)
     public void testLeftUnion_LeftArraySizeTooBig() throws Exception {
         int[] leftArray = new int[Integer.MAX_VALUE];
         int[] rightArray = new int[]{3, 5, 24, 4, 1, 2, 34, 45, 32, 5};
-        // how to handle OutOfMemory error in tests?
         testClass.leftUnion(leftArray, rightArray);
     }
 
-    @Test  // - большой второй массив (size IInteger.MAX_VALUE)
+    @Test (expected = OutOfMemoryError.class) // - большой второй массив (size IInteger.MAX_VALUE)
     public void testLeftUnion_RightArraySizeTooBig() throws Exception {
-        // todo: handle OutOfMemory error
+        int[] leftArray = new int[]{3, 5, 24, 4, 1, 2, 34, 45, 32, 5};
+        int[] rightArray = new int[Integer.MAX_VALUE];
+        testClass.leftUnion(leftArray, rightArray);
     }
 
     @Test //- тест с дубликатами
     public void testDistinctUnion_LeftArrayIsEmpty() {
-        int[] leftArray = new int[0]; // {1, 5, 4, 23, 65, 32, 78};
+        int[] leftArray = new int[0];
         int[] rightArray = new int[]{3, 5, 24, 4, 1, 2, 34, 45, 32, 5};
-
         int[] returnedValue = testClass.distinctUnion(leftArray, rightArray);
         assertArrayEquals(rightArray, returnedValue);
     }
@@ -92,7 +86,6 @@ public class ArrayOperationTest {
     public void testDistinctUnion_ArraysAreEqual() {
         int[] leftArray = new int[]{1, 1, 1, 1, 1, 1, 1};
         int[] rightArray = new int[]{1, 1, 1, 1, 1, 1, 1};
-
         int[] returnedValue = testClass.distinctUnion(leftArray, rightArray);
         assertArrayEquals(leftArray, returnedValue);
     }

@@ -110,7 +110,7 @@ public class ArrayOperation implements IArrayUnion {
         }
         return Arrays.copyOf(resDiff, j);
     }
-    
+    // Trim Array - remove all "zero" values in reverse direction (from end to start)
     public int[] rightTrimArr(int[] inpArr) {
         if (inpArr != null) {
             int i;
@@ -122,7 +122,7 @@ public class ArrayOperation implements IArrayUnion {
         } else
             return null;
     }
-
+    // Print out result
     public void printOutInCol(int[] arrPrint){
 		StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb, Locale.US);

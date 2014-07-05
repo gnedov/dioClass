@@ -25,9 +25,7 @@ public class Main {
         int[] rightArr = arrGen.initRightArray();    // defined {3,5,24,4,1,2,34,45,32,5}
         int[] resArr = arrOper.leftUnion(leftArr, rightArr); // expected result {1,5,4,23,65,32,78,5,4,1,32,5}
 
-        // Trim Array - remove all "zero" values in reverse direction (from end to start)
         resArr = arrOper.rightTrimArr(resArr);
-        // Print out result
         System.out.print("The result of Left union is: "); System.out.print('\n');
         arrOper.printOutInCol(resArr);
     }
