@@ -47,9 +47,7 @@ public class ArrayOperation implements IArrayUnion {
             int tailIndex = leftArray.length;
             Arrays.sort(leftArray);
             for (int i : rightArray){
-                if (Arrays.binarySearch(leftArray, i) >= 0) {
-                }
-                else{
+                if (Arrays.binarySearch(leftArray, i) < 0) {
                     resArr[tailIndex] = i;
                     tailIndex++;
                 }
@@ -101,9 +99,8 @@ public class ArrayOperation implements IArrayUnion {
         int j = 0;
         Arrays.sort(arrSlave);
         for (int i : arrMaster) {
-            if (Arrays.binarySearch(arrSlave, i) >= 0) {
-            }
-            else {
+        //local code review (vtegza): invert if @ 07.07.14
+            if (Arrays.binarySearch(arrSlave, i) < 0) {
                 resDiff[j] = i;
                 j++;
             }

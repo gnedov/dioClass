@@ -45,7 +45,9 @@ public class Main {
         int[] resArr = arrOper.distinctUnion(leftArr, rightArr);  //expected result [1,5,4,23,65,32,78,3,24,54,2,34,45]
 
         System.out.print("The result of Distinct union is: ");
-        arrOper.printOutInRow(resArr); System.out.print('\n');
+        //local code review (vtegza): format you code, do not make 2 calls in one row @ 07.07.14
+        arrOper.printOutInRow(resArr);
+        System.out.print('\n');
 
         //---------------- Inner union
         leftArr = arrGen.initLeftArray(INNER_UNION);    // defined [1,5,4,23,65,32,78]
